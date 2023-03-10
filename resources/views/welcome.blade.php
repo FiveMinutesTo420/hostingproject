@@ -8,6 +8,9 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="text-red-500 text-center">Wassup my maan</div>
+    <div class="flex w-full justify-around">
+        <div class="text-red-500">1</div>
+        <div class="text-green-500">2</div>
+    </div>
 </body>
 </html>
