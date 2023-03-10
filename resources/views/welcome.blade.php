@@ -13,5 +13,6 @@
         <input type="button" value="Please, click me" id="button" class="p-3 px-4 text-white bg-green-400 rounded-sm">
         <div class="text-green-500">2</div>
     </div>
+    <script src="{{asset('js/script.js')}}"></script>
 </body>
 </html>
