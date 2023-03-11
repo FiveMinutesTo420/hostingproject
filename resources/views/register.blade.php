@@ -3,12 +3,12 @@
 Быстрая регистрация
 @endsection
 @section('content')
-<div class="flex mt-4">
-    <div class="w-4/5 ">
+<div class="lg:flex mt-4 space-y-4 lg:space-y-0">
+    <div class="w-full lg:w-4/5 ">
 
         <div class="text-center text-4xl font-semibold">Быстрая регистрация</div>
         <div class="text-center text-sm mt-4">Если Вы уже зарегестрированы, перейдите на страницу <a href="{{route('log_p')}}" class="text-blue-500">входа в систему</a></div>
-        <div class="flex flex-col space-y-4 mt-4 w-[90%] mx-auto" >
+        <div class="flex flex-col space-y-4 mt-4 w-full mx-auto" >
             <div class="text-2xl font-semibold">Основная информация</div>
             <form action="{{route('reg_s')}}"  class="flex flex-col space-y-4" method="POST">
                 @csrf
@@ -108,7 +108,8 @@
 
         </div>
     </div>
-    <div class="flex justify-center w-1/5 h-max ">
+    
+    <div class="flex justify-center lg:w-1/5  w-full h-max ">
         <div class="flex-col justify-center rounded w-full border bg-white ">
         
             <a href="#" class="text-sm flex p-3 font-semibold cursor-pointer bg-gray-100 items-center justify-center  ">
