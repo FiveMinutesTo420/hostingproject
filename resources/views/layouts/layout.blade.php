@@ -133,21 +133,27 @@
                 </button>
                 <div class="absolute z-20 hidden flex-col  rounded-br-lg rounded-bl-lg border bg-white w-2/3 xl:w-[249px] mt-12" id="category_menu">
                     @foreach($categories as $category)
-                    <div class="flex p-3 border-t items-center justify-between hover:text-red-500 " @if($category->subcategories->count() > 0) onmouseover="show(this)" onmouseout="hide(this)" @endif  >
+                    <div class="flex p-3 border-t items-center justify-between hover:text-red-500 " @if($category->subcategories->count() > 0) onmouseover="show(this)" onmouseout="hide(this)" onclick="show(this)" @endif  >
                         <div class="flex">
                             <img src="{{url('images/site/categories/'.$category->image)}}" alt="" class="">
-                            <a href="{{route('category',$category->id)}}" class="text-sm ml-4 font-semibold " >
+                            @if($category->subcategories->count() > 0)
+                            <p href="{{route('category',$category->id)}}" class="cursor-pointer text-sm ml-4 font-semibold " >
+                                {{$category->name}}
+                            </p>
+                            @else
+                            <a href="{{route('category',$category->id)}}" class="cursor-pointer text-sm ml-4 font-semibold " >
                                 {{$category->name}}
                             </a>
+                            @endif
                         </div>
 
                         @if($category->subcategories->count() > 0)
                         <svg fill="#aaa" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
                         </svg>
-                        <div class="absolute flex flex-col hidden lg:ml-[237px] ml-[150px]  bg-white border rounded-lg  w-[200px]" id="sub_cats">
+                        <div class="absolute flex flex-col hidden lg:ml-[237px] p-3 px-4 space-y-4 ml-[210px] items-center bg-white border rounded-lg  w-[150px]" id="sub_cats">
                             @foreach($category->subcategories as $sub_category)
-                            <a href="{{route('subcategory',[$category->id,$sub_category->id])}}" class="text-sm  text-black font-semibold border-t hover:text-red-500 w-full p-3 px-4">
+                            <a href="{{route('subcategory',[$category->id,$sub_category->id])}}" class="text-xs lg:text-sm    text-black font-semibold  hover:text-red-500 w-full ">
                                 {{$sub_category->name}} 
                             </a>
                             @endforeach
