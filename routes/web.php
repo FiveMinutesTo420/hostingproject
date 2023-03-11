@@ -18,7 +18,8 @@ use App\Http\Controllers\RegisterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//TODO::Подумать насчет кросс платформенности страницы авторизации и регистрации. Сделать страницу товара
+//TODO::Подумать насчет кросс платформенности страницы авторизации и регистрации. 
+//TODO::Реализация добавления в корзину
 Route::get('/', HomeController::class)->name('home');
 Route::get('/category/{category}', CategoryController::class)->name('category');
 Route::get('/category/{category}/{sub_category}', SubCategoryController::class)->name('subcategory');
