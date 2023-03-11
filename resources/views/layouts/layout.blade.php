@@ -190,10 +190,10 @@
     </div>
     <div class="container lg:w-9/12 w-[95%] border rounded mx-auto space-y-6 mt-4 mb-4 ">
        <div class="bg-white w-full p-4">
-        <div class="flex text-center flex-row justify-between">
+        <div class="flex text-center flex-col lg:flex-row justify-between items-center lg:items-start space-y-5 lg:space-y-0">
             <div class="flex flex-col w-1/4">
                 <p class="font-semibold text-lg">Информация</p>
-                <div class="text-sm space-y-2 mt-2 flex flex-col  items-center ">
+                <div class="text-sm space-y-2 mt-2 flex flex-col   items-center ">
                     <p class="flex flex-row">
                         <svg fill="#aaa" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
@@ -217,9 +217,9 @@
                 </div>
                
             </div>
-            <div class="flex flex-col w-1/4 " >
-                <p class="font-semibold text-lg">Служба поддержки</p>
-                <div class="text-sm space-y-2 mt-2 flex flex-col justify-center items-center ">
+            <div class="flex flex-col w-1/4 text-center " >
+                <p class="font-semibold text-lg text-center">Служба поддержки</p>
+                <div class="text-sm space-y-2 mt-2 flex flex-col justify-center lg:block hidden items-center ">
                     <p class="flex flex-row">
                         <svg fill="#aaa" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
@@ -238,9 +238,9 @@
 
                 </div>
             </div>
-            <div class="flex flex-col w-1/4 ">
-                <p class="font-semibold text-lg">Дополнительно</p>
-                <div class="text-sm space-y-2 mt-2 flex flex-col justify-center items-center ">
+            <div class="flex flex-col w-1/4 text-center">
+                <p class="font-semibold text-lg text-center">Дополнительно</p>
+                <div class="text-sm space-y-2 mt-2 flex flex-col justify-center lg:block hidden items-center ">
                     <p class="flex flex-row">
                         <svg fill="#aaa" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
@@ -264,9 +264,9 @@
 
                 </div>
             </div>
-            <div class="flex flex-col w-1/4 ">
-                <p class="font-semibold text-lg">Личный кабинет</p>
-                <div class="flex flex-col justify-center items-center space-y-2 mt-2 text-sm">
+            <div class="flex flex-col w-1/4 text-center">
+                <p class="font-semibold text-lg text-center">Личный кабинет</p>
+                <div class="flex flex-col justify-center items-center space-y-2 lg:block hidden mt-2 text-sm">
                     <p class="flex flex-row">
                         <svg fill="#aaa" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
