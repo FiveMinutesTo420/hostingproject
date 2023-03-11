@@ -11,9 +11,9 @@
 
     @if($category->subcategories->count()>0)
     <div class="text-center font-semibold text-lg">Выберите подкатегорию</div>
-    <div class="flex justify-center flex-wrap">
+    <div class="flex justify-start flex-wrap">
         @foreach($category->subcategories as $subcategory)
-        <div class="flex mt-2  2xl:mt-0 flex-col bg-white border text-center rounded p-4 items-center justify-between w-56">
+        <div class="flex mt-2  2xl:mt-0 flex-col bg-white border text-center rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[48%]">
             <img src="{{url("images/site/sub_categories/".$subcategory->image)}}" class="w-36 " alt="">
             <a href="{{route('subcategory',[$category->id,$subcategory->id])}}" class="text-red">{{$subcategory->name}}</a>
         </div>
