@@ -54,30 +54,30 @@
         </div>
     </div>
 
-    <div class="flex  flex-wrap justify-center lg:justify-between text-center font-semibold text-sm">
-        <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+    <div class="flex  flex-wrap justify-center lg:justify-between text-center font-semibold text-sm w-full">
+        <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center lg:text-sm lg:w-56 text-xs w-[45%]">
             <img src="{{url("images/site/vetkorm150.png")}}" class="w-36 " alt="">
             <p>Ветеринарная диета</p>
         </div>
-        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between w-56" >
+        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]" >
             <img src="{{url("images/site/ruletki150.jpg")}}" class="w-36" alt="">
 
             <p>Рулетки</p>
 
         </div>
-        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
             <img src="{{url("images/site/perenoski150.jpg")}}" class="w-36" alt="">
 
             <p>Переноски для животных</p>
 
         </div>
-        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
             <img src="{{url("images/site/vlajka150.png")}}" class="w-36" alt="">
 
             <p>Влажные корма для кошек</p>
             
         </div>
-        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+        <div class="flex m-2 2xl:m-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
             <img src="{{url("images/site/akvadekor150.jpg")}}" class="w-36" alt="">
 
             <p>Декорации</p>
@@ -87,29 +87,29 @@
     <div class="flex flex-col text-center space-y-4 ">
         <p class="font-semibold text-xl mt-4">Корма для кошек под брендом: </p>
         <div class="flex  flex-wrap justify-center lg:justify-between text-center font-semibold text-sm">
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/royalcanin200.png")}}" class="w-36 " alt="">
                 <p>Royal Canin для кошек</p>
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56" >
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]" >
                 <img src="{{url("images/site/purina200x200.png")}}" class="w-36" alt="">
     
                 <p>PURINA</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/farmina200.png")}}" class="w-36" alt="">
     
                 <p>Farmina</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/boreal200.png")}}" class="w-36" alt="">
     
                 <p>Boreal для кошек</p>
                 
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/derlaklogo200.png")}}" class="w-36" alt="">
     
                 <p>Деревенские лакомства</p>
@@ -120,29 +120,29 @@
     <div class="flex flex-col text-center space-y-4">
         <p class="font-semibold text-xl  mt-4">Корма для собак под брендом: </p>
         <div class="flex  flex-wrap justify-center lg:justify-between text-center font-semibold text-sm">
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/royalcanin200.png")}}" class="w-36 " alt="">
                 <p>Royal Canin для собак</p>
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56" >
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]" >
                 <img src="{{url("images/site/purina200x200.png")}}" class="w-36" alt="">
     
                 <p>PURINA</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/farmina200.png")}}" class="w-36" alt="">
     
                 <p>Farmina</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/territoriyalogo200.png")}}" class="w-36" alt="">
     
                 <p>ТерриториЯ™</p>
                 
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/fundoglogo200.png")}}" class="w-36" alt="">
     
                 <p>Fun Dog</p>
@@ -153,29 +153,29 @@
     <div class="flex flex-col text-center space-y-4">
         <p class="font-semibold text-xl  mt-4">другие категории товаров: </p>
         <div class="flex  flex-wrap justify-center lg:justify-between text-center font-semibold text-sm">
-            <div class="flex mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/birds170.jpg")}}" class="w-36 " alt="">
                 <p>Товары для птиц</p>
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56" >
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]" >
                 <img src="{{url("images/site/kak_chasto_kormit_cherepah170.jpg")}}" class="w-36" alt="">
     
                 <p>Корма для рептилий и черепах</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/hamsterhome170.jpg")}}" class="w-36" alt="">
     
                 <p>Товары для грызунов</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/section170.jpg")}}" class="w-36" alt="">
     
                 <p>Витамины</p>
                 
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/grumingcare170.jpg")}}" class="w-36" alt="">
     
                 <p>Груминг и уход</p>
@@ -183,29 +183,29 @@
             </div>
         </div>
         <div class="flex  flex-wrap justify-center   lg:justify-between text-center font-semibold text-sm">
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/dogtoys170.jpg")}}" class="w-36 " alt="">
                 <p>Игрушки для собак</p>
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56" >
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]" >
                 <img src="{{url("images/site/domiki170.jpg")}}" class="w-36" alt="">
     
                 <p>Лежаки, домики, когеточки</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/napolniteli170.jpeg")}}" class="w-36" alt="">
     
                 <p>Наполнители для кошачьего туалета</p>
     
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/miski170.jpeg")}}" class="w-36" alt="">
     
                 <p>Миски, бутылочки</p>
                 
             </div>
-            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between w-56">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/akvarium170.jpg")}}" class="w-36" alt="">
     
                 <p>Аквариумы</p>

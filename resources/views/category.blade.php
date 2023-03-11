@@ -31,7 +31,7 @@
     @endif
     <div class="flex flex-wrap justify-between">
         @foreach($category->products as $product)
-        <div class="flex flex-col mt-1.5 w-56 border items-center text-center space-y-2 p-2">
+        <div class="flex flex-col mt-1.5 lg:text-sm lg:w-56 text-xs w-[48%] border items-center text-center space-y-2 p-2">
             <img src="{{url('images/products/'.$product->image)}}" class="w-5/6 h-40" alt="">
             <a href="{{route('item',$product->id)}}" class="hover:text-red-500 text-sm">{{$product->name}}</a>
             <p class="font-semibold">{{$product->price}}руб.</p>
