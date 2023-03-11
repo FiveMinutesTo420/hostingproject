@@ -116,7 +116,7 @@
                 </div>
 
             </div>
-        <div class="mt-4   flex xl:flex-row xl:space-x-5 space-y-4 xl:space-y-0 flex-col">
+        <div class="mt-4   flex xl:flex-row xl:space-x-5 space-x-0 space-y-4 xl:space-y-0 flex-col">
             <div class="flex flex-col">
                 <button class="bg-[#F79400] flex text-white p-3 w-full xl:w-[249px] rounded font-semibold" id="category_button">
                     <span>
@@ -161,20 +161,9 @@
 
             
             <div class="flex  w-full">
-                <button class=" bg-[#F8F9FA] border py-3  px-5 flex rounded-tl rounded-bl items-center">
-                    Везде
-                    <span class="flex items-center">
-                        <svg width="21" fill="#aaa" class="" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                        </svg>
-                    </span>
-                </button>
-                <input placeholder="Поиск в каталоге" type="text" class="flex-1 border px-3">
-                <button class="bg-[#F8F9FA] px-4 border rounded-tr rounded-br">				
-                    <svg fill="#aaa" width="24" class="" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                </svg>
-                </button>
+  
+                <input placeholder="Поиск в каталоге" type="text" class="flex-1 rounded py-3 border px-4">
+    
             </div>
             <button class="flex py-3 text-white justify-between  items-center py-1 xl:py-0 bg-[#007BFF] w-full xl:w-auto text-sm px-4 rounded space-x-4">
                 <span class="flex">
