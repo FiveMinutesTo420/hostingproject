@@ -15,7 +15,7 @@
 </head>
 <body>
     <header class="bg-white p-1 drop-shadow-md">
-        <div class="container lg:w-9/12 w-[95%]  mx-auto flex font-normal ">
+        <div class="container lg:w-9/12 w-[95%]   mx-auto flex font-normal ">
             <div class="flex flex-1  justify-center">
                 <a href="" id="top-links" class="space-x-2 flex bg-gray-50 items-center hover:bg-gray-200 px-3 rounded-sm transition-all duration-200">
                     <span>
@@ -41,11 +41,7 @@
                     </span>
                     <span class="lg:block hidden">Помощь</span>
                 </button>
-                <div id="help-menu" class="h-20 hidden w-40 mt-8 text-sm bg-white border absolute flex flex-col justify-center items-center">
-                    <a href="" class="w-full hover:bg-gray-100 p-1 px-4">Условия доставки</a>
-                    <a href="" class="w-full hover:bg-gray-100 p-1 px-4">Контакты</a>
-                    
-                </div>
+
                 <button id="log-btn" class="flex space-x-2 bg-gray-50  items-center hover:bg-gray-200 px-3 py-1 rounded-sm transition-all duration-200">
                     <span>
                         <svg class="w-5"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
@@ -60,25 +56,38 @@
                         @endif
                     </span>
                 </button>
-                    <div id="log-menu" class="h-max rounded hidden w-40 text-sm ml-36 mt-8 bg-white border absolute flex flex-col justify-center items-center">
-                        @if(auth()->check())
-                        <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Личный кабинет</a>
-                        <a href="{{route('log_p')}}" class="w-full hover:bg-gray-100 p-1 px-4">История заказов</a>
-                        <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Транзакции</a>
-                        <form action="{{route('logout')}}" method="POST" class="w-full cursor-pointer">
-                            @csrf
-                            <input type="submit" value="Выход" class="w-full text-left hover:bg-gray-100 p-1 px-4">
-                        </form>
-
-                        @else
-                        <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Регистрация</a>
-                        <a href="{{route('log_p')}}" class="w-full hover:bg-gray-100 p-1 px-4">Авторизация</a>
-                        @endif
-                        
-                    </div>
+       
             </div>
             
         </div>
+        <div class="lg:w-4/5 w-full mx-auto">
+            <div class="flex w-full justify-end ">
+                <div id="help-menu" class="h-20 hidden w-50 lg:mr-32  text-sm bg-white border absolute flex flex-col justify-center items-center">
+                    <a href="" class="w-full hover:bg-gray-100 p-1 px-4">Условия доставки</a>
+                    <a href="" class="w-full hover:bg-gray-100 p-1 px-4">Контакты</a>
+                    
+                </div>
+                <div id="log-menu" class="h-max rounded hidden w-54 text-sm lg:mr-5   bg-white border absolute flex flex-col justify-center items-center">
+                    @if(auth()->check())
+                    <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Личный кабинет</a>
+                    <a href="{{route('log_p')}}" class="w-full hover:bg-gray-100 p-1 px-4">История заказов</a>
+                    <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Транзакции</a>
+                    <form action="{{route('logout')}}" method="POST" class="w-full cursor-pointer">
+                        @csrf
+                        <input type="submit" value="Выход" class="w-full text-left hover:bg-gray-100 p-1 px-4">
+                    </form>
+        
+                    @else
+                    <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Регистрация</a>
+                    <a href="{{route('log_p')}}" class="w-full hover:bg-gray-100 p-1 px-4">Авторизация</a>
+                    @endif
+                    
+                </div>
+            </div>
+
+        </div>
+            
+        
         
     </header>
 
