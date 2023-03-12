@@ -119,3 +119,14 @@ setInterval(function() {
     next()
 }, 5000);
 }
+function showfooter(el){
+    let d = el.parentNode;
+    let c = d.lastElementChild;
+    if(c.classList.contains("hidden")){
+      c.classList.remove('hidden');
+    }else{
+      c.classList.add('hidden');
+  
+    }
+  
+  }
