@@ -34,8 +34,7 @@ thirdB.addEventListener('click',function(){
 })
 buy.addEventListener('click',function(){
     item_modal.classList.remove('hidden');
-    count_item_modal.innerText = "Check";
-    //"x" + document.getElementById('count_input').value;
+    count_item_modal.innerText = "x" + document.getElementById('count_input').value;
     document.getElementById('count_cart').value = document.getElementById('count_input').value;
     
 })
