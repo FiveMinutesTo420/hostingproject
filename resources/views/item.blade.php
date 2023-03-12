@@ -80,8 +80,8 @@
                           <p class="mb-3 " id="modalText">
                             Вы хотите добавить этот товар в корзину?
                           </p>
-                          <p class="border-t p-2 px-8 border-b flex  justify-between items-center">
-                            <img src="{{url('images/products/'.$item->image)}}" class="" width="50" alt=""> {{$item->name}} <span class="text-black" id="count_item_modal"></span>
+                          <p class="border-t py-3 border-b flex  justify-between text-center text-xs items-center">
+                            <img src="{{url('images/products/'.$item->image)}}" class="" width="35" alt=""> {{$item->name}} <span class="text-black" id="count_item_modal"></span>
                           </p>
                         </div>
                       </div>

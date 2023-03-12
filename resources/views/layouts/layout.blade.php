@@ -198,7 +198,7 @@
        <div class="bg-white w-full p-4">
         <div class="flex text-center flex-col  lg:flex-row justify-between items-center lg:items-start space-y-5 lg:space-y-0">
             <div class="flex flex-col w-full border-b lg:border-b-0 py-3 space-y-4">
-                <div class="flex w-full justify-between items-center" onclick="showfooter(this)">
+                <div class="flex w-full justify-between cursor-pointer items-center" onclick="showfooter(this)">
                     <p class="font-semibold lg:text-lg text-base flex w-full justify-center">Информация</p>
                     <svg fill="#000000" height="11px" width="11px" class="lg:hidden" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
                 </div>
@@ -227,7 +227,7 @@
                
             </div>
             <div class="flex flex-col w-full border-b lg:border-b-0 py-3 space-y-4">
-                <div class="flex w-full justify-between items-center" onclick="showfooter(this)">
+                <div class="flex w-full justify-between cursor-pointer items-center" onclick="showfooter(this)">
                     <p class="font-semibold lg:text-lg text-base flex w-full justify-center">Служба поддержки</p>
                     <svg fill="#000000" height="11px" width="11px" class="lg:hidden" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
                 </div>
@@ -256,7 +256,7 @@
                
             </div>
             <div class="flex flex-col w-full border-b lg:border-b-0 py-3 space-y-4">
-                <div class="flex w-full justify-between items-center" onclick="showfooter(this)">
+                <div class="flex w-full justify-between cursor-pointer items-center" onclick="showfooter(this)">
                     <p class="font-semibold lg:text-lg text-base flex w-full justify-center">Дополнительно</p>
                     <svg fill="#000000" height="11px" width="11px" class="lg:hidden" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
                 </div>
@@ -285,7 +285,7 @@
                
             </div>
             <div class="flex flex-col w-full border-b lg:border-b-0 py-3 space-y-4">
-                <div class="flex w-full justify-between items-center" onclick="showfooter(this)">
+                <div class="flex w-full justify-between cursor-pointer items-center" onclick="showfooter(this)">
                     <p class="font-semibold lg:text-lg text-base flex w-full justify-center">Личный кабинет</p>
                     <svg fill="#000000" height="11px" width="11px" class="lg:hidden" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
                 </div>

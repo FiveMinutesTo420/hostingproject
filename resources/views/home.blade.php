@@ -153,7 +153,7 @@
     <div class="flex flex-col text-center space-y-4">
         <p class="font-semibold text-xl  mt-4">другие категории товаров: </p>
         <div class="flex  flex-wrap justify-start lg:justify-between text-center font-semibold text-sm">
-            <div class="flex mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
+            <div class="flex m-2 2xl:m-0 mt-2 2xl:mt-0 flex-col bg-white border rounded p-4 items-center justify-between lg:text-sm lg:w-56 text-xs w-[45%]">
                 <img src="{{url("images/site/birds170.jpg")}}" class="w-36 " alt="">
                 <p>Товары для птиц</p>
             </div>
