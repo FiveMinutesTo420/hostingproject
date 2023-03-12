@@ -188,7 +188,12 @@
         </div>
 
 
-
+        @if(Session::has('success'))
+        <div class="p-3 px-4 flex items-center justify-center rounded bg-green-400 text-white text-lg">
+            {{Session::get('success')}}
+        </div>
+        @endif
+     
     </div>
     
     <div class="container lg:w-9/12 w-[95%] mx-auto space-y-6  ">

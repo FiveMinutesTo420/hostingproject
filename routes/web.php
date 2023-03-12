@@ -18,8 +18,7 @@ use App\Http\Controllers\RegisterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//TODO::Подумать насчет кросс платформенности страницы авторизации и регистрации. 
-//TODO::Реализация добавления в корзину
+//TODO::Страница корзины, и остальные мелкие страницы с текстом(Помощь, О компании и тд)
 Route::get('/', HomeController::class)->name('home');
 Route::get('/category/{category}', CategoryController::class)->name('category');
 Route::get('/category/{category}/{sub_category}', SubCategoryController::class)->name('subcategory');
@@ -32,3 +31,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('/register/store', [RegisterController::class, 'store'])->name('reg_s');
 Route::get('/item/{item}', [ItemController::class, 'show'])->name('item');
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('cart/add/{item}', [ItemController::class, 'addToCart'])->name('add_to_cart');
+});
