@@ -93,7 +93,7 @@
             </div>       
         </div>
     </div>
-    <div class="flex justify-center lg:w-1/5  w-full h-max ">
+    <div class="flex justify-center lg:w-[17.7%]  w-full h-max ">
         <div class="flex-col justify-center rounded w-full border bg-white ">
         
             <a href="#" class="text-sm flex p-3 font-semibold cursor-pointer bg-gray-100 items-center justify-center  ">
