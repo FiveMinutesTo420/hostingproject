@@ -38,7 +38,7 @@
             <div class="flex w-4/5  mb-2 text-xs font-semibold ">
                 <button class="flex bg-white border drop-shadow-sm w-full text-gray-900 items-center justify-center space-x-1 p-2 rounded">
      
-                    Купить
+                    В корзину
                 </button>
     
             </div>
