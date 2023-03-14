@@ -130,3 +130,10 @@ function showfooter(el){
     }
   
   }
+function showCartModal(){
+    document.getElementById('cart_modal').classList.remove('hidden');
+}
+document.getElementById('back_cart_modal_btn').addEventListener('click',function(){
+    document.getElementById('cart_modal').classList.add('hidden');
+
+})

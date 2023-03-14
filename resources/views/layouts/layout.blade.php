@@ -71,7 +71,7 @@
                     @if(auth()->check())
                     <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Личный кабинет</a>
                     <a href="{{route('log_p')}}" class="w-full hover:bg-gray-100 p-1 px-4">История заказов</a>
-                    <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Транзакции</a>
+                    <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Корзина</a>
                     <form action="{{route('logout')}}" method="POST" class="w-full cursor-pointer">
                         @csrf
                         <input type="submit" value="Выход" class="w-full text-left hover:bg-gray-100 p-1 px-4">
@@ -171,13 +171,19 @@
                 <input placeholder="Поиск в каталоге" type="text" class="flex-1 rounded py-3 border px-4">
     
             </div>
-            <button class="flex py-3 text-white justify-between  items-center py-1 xl:py-0 bg-[#007BFF] w-full xl:w-auto text-sm px-4 rounded space-x-4">
+            <button class="flex py-3 text-white justify-between  items-center py-1 xl:py-0 bg-[#007BFF] w-full xl:w-auto text-sm px-4 rounded space-x-4" onclick="showCartModal()">
                 <span class="flex">
                     <svg width="24" class=""  fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.21 9l-4.38-6.56c-.19-.28-.51-.42-.83-.42-.32 0-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1h-4.79zM9 9l3-4.4L15 9H9zm3 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
                     </svg>
                 </span>
-                <span class="">0 товаров</span>
+                <span class="">
+                    @if(Auth::check())
+                    Корзина ({{auth()->user()->cart->count()}})
+                    @else
+                    <p>Войдите</p>
+                    @endif
+                </span>
                 <span class="flex">
                     <svg width="24" fill="#fff" class="" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 						<path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
@@ -317,6 +323,83 @@
         </div>
        </div>
     </div>
+    <div class="relative z-10 hidden" id="cart_modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!--
+          Background backdrop, show/hide based on modal state.
+      
+          Entering: "ease-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+          <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <!--
+              Modal panel, show/hide based on modal state.
+      
+              Entering: "ease-out duration-300"
+                From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                To: "opacity-100 translate-y-0 sm:scale-100"
+              Leaving: "ease-in duration-200"
+                From: "opacity-100 translate-y-0 sm:scale-100"
+                To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            -->
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class=" ">
+   
+                  <div class="mt-3  text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900" id="modal-title">Корзина покупок</h3>
+                    <div class="mt-4 text-sm space-y-4 text-gray-500 ">
+                    @if(Auth::check())
+                        @if(auth()->user()->cart->count() == 0)
+                            <p> Вы не добавили ни одного товара </p>
+                        @else
+                            @foreach(auth()->user()->cart as $cart_item)
+                            <div class="flex justify-between items-center text-xs lg:text-sm space-x-2  py-3">
+                                <img width="60" src="{{url('images/products/'.$cart_item->item->image)}}" alt="">
+                                <a href="{{route('item',$cart_item->item->id)}}" class="text-center hover:border-b text-blue-500">{{$cart_item->item->name}}</a>
+                                <div class="flex flex-col">
+                                    <p><b class="text-black">{{$cart_item->item->price * $cart_item->count}}</b> руб.</p>
+                                    <p class="text-center text-xs text-black">x{{$cart_item->count}}</p>
+                                </div>
+                            </div>
+                            @endforeach
+                            <?php $sum_total = 0?>
+                            <div class="w-full flex items-center border-t border-b p-4 justify-center">
+                            @foreach(auth()->user()->cart as $cart_item)
+                                <?php $sum_total += $cart_item->item->price * $cart_item->count ?>
+                                
+                            @endforeach
+                               <p> {{auth()->user()->cart->count()}} товар(ов), на сумму  <b class="text-black">{{$sum_total}} рублей</b></p>
+                            </div>
+                        @endif
+                      @else
+                      <p><a href="{{route("log_p")}}" class="text-blue-500 border-b">Войдите</a>, чтобы добавлять товары в корзину</p>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 ">
+                @if(Auth::check())
+                  <button type="submit" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Оформить заказ</button>
+                  <button type="submit" class="mt-3 lg:mt-0 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm text-gray-900 sm:ml-3 sm:w-auto ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Перейти в корзину</button>
+               
+                @else
+                <a href="{{route('log_p')}}" class="cursor-pointer inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Войти</a>
+                @endif
+                <button type="button" id="back_cart_modal_btn" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Вернуться</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <script src="{{url('js/layout.js')}}"></script>
     @yield('scripts')
 </body>
