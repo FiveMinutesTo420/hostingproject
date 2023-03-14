@@ -225,7 +225,7 @@
                     <a href="{{route('item',$product->id)}}" class="text-sm hover:text-red-500">{{$product->name}}</a>
                     <p class="font-semibold">{{$product->price}}руб.</p>
                     <div class="flex w-4/5  mb-2 text-xs font-semibold ">
-                        <button class="flex bg-white border drop-shadow-sm w-full text-gray-900 items-center justify-center space-x-1 p-2 rounded">
+                        <button @if(Auth::check() == false) onclick="showCartModal()" @endif class="flex bg-white border drop-shadow-sm w-full text-gray-900 items-center justify-center space-x-1 p-2 rounded">
              
                             В корзину
                         </button>
