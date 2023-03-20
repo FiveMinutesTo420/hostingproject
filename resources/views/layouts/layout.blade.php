@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{url('css/style.css')}}">
-    <!--hehe-->
     @vite('resources/css/app.css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
     <link href="{{url('images/site/miniLogo.jpg')}}" rel="icon">
+    @yield('head')
 </head>
 <body>
     <header class="bg-white p-1 drop-shadow-md">
@@ -362,7 +362,7 @@
                             @foreach(auth()->user()->cart as $cart_item)
                             <div class="flex justify-between items-center text-xs lg:text-sm space-x-2  py-3">
                                 <img width="60" src="{{url('images/products/'.$cart_item->item->image)}}" alt="">
-                                <a href="{{route('item',$cart_item->item->id)}}" class="text-center hover:border-b text-blue-500">{{$cart_item->item->name}}</a>
+                                <a href="{{route('item',$cart_item->item->id)}}" class="text-center  hover:border-b text-blue-500">{{$cart_item->item->name}}</a>
                                 <div class="flex flex-col">
                                     <p><b class="text-black">{{$cart_item->item->price * $cart_item->count}}</b> руб.</p>
                                     <p class="text-center text-xs text-black">x{{$cart_item->count}}</p>
@@ -391,7 +391,7 @@
                 <button type="submit" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Оформить заказ</button>
                 @endif
                  
-                  <button type="submit" class="mt-3 lg:mt-0 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm text-gray-900 sm:ml-3 sm:w-auto ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Перейти в корзину</button>
+                  <a href="{{route('cart')}}" class="mt-3 lg:mt-0 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm text-gray-900 sm:ml-3 sm:w-auto ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Перейти в корзину</a>
                
                 @else
                 <a href="{{route('log_p')}}" class="cursor-pointer inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Войти</a>

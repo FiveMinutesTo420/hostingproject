@@ -7,6 +7,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,7 @@ Route::post('/register/store', [RegisterController::class, 'store'])->name('reg_
 Route::get('/item/{item}', [ItemController::class, 'show'])->name('item');
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/cart/change/amount', [CartController::class, 'change_amount'])->name('change_amount');
+    Route::get('/cart', CartController::class)->name('cart');
     Route::post('cart/add/{item}', [ItemController::class, 'addToCart'])->name('add_to_cart');
 });
