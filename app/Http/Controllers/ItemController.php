@@ -29,4 +29,18 @@ class ItemController extends Controller
             return Redirect::back()->withSuccess("Товар добавлен в корзину");
         }
     }
+    public function search(Request $request)
+    {
+        $items = Product::where('name', 'like', '%' . $request->text . '%')->get();
+        if ($items) {
+            if (count($items) != 0) {
+                $response = array("message" => "good", "products" => $items->take(5), 'amount' => count($items));
+            } else {
+                $response = array("message" => "not_found", 'amount' => '0');
+            }
+        } else {
+            $response = array("message" => "bad");
+        }
+        return json_encode($response);
+    }
 }

@@ -19,7 +19,7 @@ use App\Http\Controllers\CartController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//TODO::Страница корзины, и остальные мелкие страницы с текстом(Помощь, О компании и тд)
+//TODO::Докончить корзина затем сделать все результаты поиска, и остальные мелкие страницы с текстом(Помощь, О компании и тд)
 Route::get('/', HomeController::class)->name('home');
 Route::get('/category/{category}', CategoryController::class)->name('category');
 Route::get('/category/{category}/{sub_category}', SubCategoryController::class)->name('subcategory');
@@ -38,3 +38,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart', CartController::class)->name('cart');
     Route::post('cart/add/{item}', [ItemController::class, 'addToCart'])->name('add_to_cart');
 });
+Route::post('/search', [ItemController::class, 'search'])->name('search');

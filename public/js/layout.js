@@ -11,6 +11,8 @@ let sel_country = document.getElementById('select_country');
 let sel_region = document.getElementById('select_region');
 
 let ru_regions = ['Владимировка', 'Жатай','Кангалассы','Маган','Марха','Покровск','Табага','Хатассы','Якутск']
+
+let search_items_results = document.getElementById('search-items-results')
 function select_c(){
     if(sel_country.value == "Russia"){
         ru_regions.forEach(element => {
@@ -137,3 +139,47 @@ document.getElementById('back_cart_modal_btn').addEventListener('click',function
     document.getElementById('cart_modal').classList.add('hidden');
 
 })
+function search_render(items){
+
+}
+async function search(el,url,img_url,item_url){
+
+    let data = {
+        'text':el.value
+    }
+    let response = await fetch(url,{
+        method:"POST",
+        headers:{
+            'X-CSRF-TOKEN':document.getElementById('ctoken').getAttribute('content'),
+            'Content-Type':'application/json;charset=utf-8'
+        },
+        body:JSON.stringify(data)
+    })
+    let result = await response.json();
+    if(result.message == 'not_found'){
+        if(document.getElementById('search-results').classList.contains('hidden')){
+            document.getElementById('search-results').classList.remove('hidden')
+        }
+        
+        search_items_results.innerHTML = "0 results";
+        document.getElementById('amount_search').innerHTML = result.amount
+
+    }
+    if(result.message == 'good'){
+        if(document.getElementById('search-results').classList.contains('hidden')){
+            document.getElementById('search-results').classList.remove('hidden')
+        }
+        let products = result.products
+        
+        search_items_results.innerHTML = "";
+
+        
+        products.map(x => search_items_results.innerHTML += "<a href='"+item_url + '/' + x.id +"' class='border-b hover:bg-gray-100 py-3 flex space-x-4 px-4'><img src='"+img_url+'/'+x.image+"' class='w-14 rounded-lg h-14 border p-1' alt=''><div class='flex-col space-y-2 w-full min-w-0'><div class='text-sm'>"+x.name+"</div><div class='text-xs w-full truncate block'>"+x.description+"</div><div class='text-sm'>"+x.price+"</div></div></a>")
+        document.getElementById('amount_search').innerHTML = result.amount
+
+    }
+}
+window.onclick = function(){
+    document.getElementById('search-results').classList.add('hidden')
+    
+}

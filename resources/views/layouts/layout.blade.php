@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
     <link href="{{url('images/site/miniLogo.jpg')}}" rel="icon">
     @yield('head')
+    <meta name="csrf-token" id="ctoken" content="{{ csrf_token() }}">
 </head>
 <body>
     <header class="bg-white p-1 drop-shadow-md">
@@ -165,10 +166,18 @@
                 </div>
             </div>
 
+            <div class="flex flex-col w-full">
             
-            <div class="flex  w-full">
-  
-                <input placeholder="Поиск в каталоге" type="text" class="flex-1 rounded py-3 border px-4">
+            <input placeholder="Поиск в каталоге" id="search-input" oninput="search(this,'{{route('search')}}','{{url('images/products')}}','{{url('item')}}')   " type="text" class="flex-1 rounded py-3 border px-4">
+                <div id="search-results" class="hidden absolute z-20 mt-14 w-[95%] md:w-[80%] lg:w-[40%] bg-white border rounded  drop-shadow  flex flex-col">
+                    <div id="search-items-results">
+
+                    </div>
+                    <a href="" class="flex justify-center p-2 text-xs">
+                        Все результаты ( <span id="amount_search"></span> )
+                    </a>
+                    
+                </div>
     
             </div>
             <button class="flex py-3 text-white justify-between  items-center py-1 xl:py-0 bg-[#007BFF] w-full xl:w-auto text-sm px-4 rounded space-x-4" onclick="showCartModal()">
@@ -190,9 +199,9 @@
 					</svg>
                 </span>
             </button>
-
+            
         </div>
-
+        
 
         @if(Session::has('success'))
         <div class="p-3 px-4 flex items-center justify-center rounded bg-green-400 text-white text-lg">
