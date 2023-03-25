@@ -165,7 +165,7 @@
                  
                 </div>
             </div>
-
+          
             <div class="flex flex-col w-full">
             
             <input placeholder="Поиск в каталоге" id="search-input" oninput="search(this,'{{route('search')}}','{{url('images/products')}}','{{url('item')}}')   " type="text" class="flex-1 rounded py-3 border px-4">
@@ -201,7 +201,7 @@
             </button>
             
         </div>
-        
+        <a  class='border-b hover:bg-gray-100 py-3 flex space-x-4 px-4'><img src='' class='w-14 rounded-lg h-14 border p-1' alt='' width='54' height='54' ><div class='flex-col space-y-2 w-full min-w-0'><div class='text-sm'>"+x.name+"</div><div class='text-xs w-full truncate block'>"+x.description+"</div><div class='text-sm'>"+x.price+"</div></div></a>
 
         @if(Session::has('success'))
         <div class="p-3 px-4 flex items-center justify-center rounded bg-green-400 text-white text-lg">
