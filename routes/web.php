@@ -39,3 +39,4 @@ Route::middleware(['auth'])->group(function () {
     Route::post('cart/add/{item}', [ItemController::class, 'addToCart'])->name('add_to_cart');
 });
 Route::post('/search', [ItemController::class, 'search'])->name('search');
+Route::get('/search?q={text}', [ItemController::class, 'search_p'])->name("search_p");

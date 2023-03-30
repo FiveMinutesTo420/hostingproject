@@ -34,7 +34,8 @@ class ItemController extends Controller
         $items = Product::where('name', 'like', '%' . $request->text . '%')->get();
         if ($items) {
             if (count($items) != 0) {
-                $response = array("message" => "good", "products" => $items->take(5), 'amount' => count($items));
+                $url = route("search_p", $request->text);
+                $response = array("message" => "good", "products" => $items->take(5), 'amount' => count($items), 'url' => $url);
             } else {
                 $response = array("message" => "not_found", 'amount' => '0');
             }
@@ -42,5 +43,9 @@ class ItemController extends Controller
             $response = array("message" => "bad");
         }
         return json_encode($response);
+    }
+    public function search_p(Request $request)
+    {
+        dd($request->q);
     }
 }

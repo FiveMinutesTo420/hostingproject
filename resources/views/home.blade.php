@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title')ZooYakutsk @endsection
+@section('title')ZooYakutsk, Интернет-магазин @endsection
 @section('content')
 <div class="mt-4 hidden lg:block relative">
     <ul id="slider">
