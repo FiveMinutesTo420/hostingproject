@@ -32,12 +32,13 @@ class ItemController extends Controller
     public function search(Request $request)
     {
         $items = Product::where('name', 'like', '%' . $request->text . '%')->get();
+        $url = route("search_p", ['q' => $request->text]);
+
         if ($items) {
             if (count($items) != 0) {
-                $url = route("search_p", $request->text);
                 $response = array("message" => "good", "products" => $items->take(5), 'amount' => count($items), 'url' => $url);
             } else {
-                $response = array("message" => "not_found", 'amount' => '0');
+                $response = array("message" => "not_found", 'amount' => '0', 'url' => $url);
             }
         } else {
             $response = array("message" => "bad");
@@ -46,6 +47,12 @@ class ItemController extends Controller
     }
     public function search_p(Request $request)
     {
-        dd($request->q);
+        if ($request->has('q')) {
+            $query = $request->q;
+            $items = Product::where('name', 'like', '%' . $query . '%')->get();
+            return view('search', compact('items', 'query', 'items'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 }

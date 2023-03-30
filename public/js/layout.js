@@ -139,9 +139,13 @@ document.getElementById('back_cart_modal_btn').addEventListener('click',function
     document.getElementById('cart_modal').classList.add('hidden');
 
 })
-function search_render(items){
-
+function search_enter(el,url){
+    if(event.key === "Enter"){
+        window.location.replace(url+"?q="+el.value);
+    }
 }
+
+
 async function search(el,url,img_url,item_url){
 
     let data = {
@@ -162,8 +166,10 @@ async function search(el,url,img_url,item_url){
             document.getElementById('search-results').classList.remove('hidden')
         }
         
-        search_items_results.innerHTML = "0 results";
-        document.getElementById('amount_search').innerHTML = result.amount
+        search_items_results.innerHTML = "<div class='p-4'>Товаров не найдено</div>";
+        document.getElementById('amount-find').innerHTML = result.amount;
+        document.getElementById('search-link').setAttribute('href',result.url);
+
 
     }
     if(result.message == 'good'){
@@ -176,7 +182,12 @@ async function search(el,url,img_url,item_url){
 
         
         products.map(x => search_items_results.innerHTML += "<a href='"+item_url + '/' + x.id +"' class='border-b hover:bg-gray-100 py-3 flex space-x-4 px-4'><div class='w-[60px] h-[60px]'><img src='"+img_url+'/'+x.image+"' class=' rounded-lg border p-1 ' alt='' ></div><div class='flex-col space-y-2 w-full min-w-0'><div class='text-sm'>"+x.name+"</div><div class='text-xs w-full truncate block'>"+x.description.substring(0,70)+'...'+"</div><div class='text-sm'>"+x.price+" рублей</div></div></a>")
-        document.getElementById('amount_search').innerHTML = result.amount
+        
+        document.getElementById('amount-find').innerHTML = "";
+        document.getElementById('amount-find').innerHTML = result.amount;
+
+        document.getElementById('search-link').setAttribute('href',result.url);
+
 
     }
 }
