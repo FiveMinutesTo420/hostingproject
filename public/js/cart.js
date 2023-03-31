@@ -36,3 +36,33 @@ async function changeAmount(amount,id,url){
     }
     
 }
+
+async function addToCart(id,form_url,img_url,request_url){
+    let data = {
+        id:id
+    }
+    document.getElementById('add_form_cart').setAttribute('action',form_url)
+    document.getElementById('modal-item-image').setAttribute('src',img_url)
+    let response = await fetch(request_url,{
+        method:'POST',
+        headers:{
+            'X-CSRF-TOKEN':document.getElementById('ctoken').getAttribute('content'),
+            'Content-Type':'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(data)
+    })
+    let result = await response.json()
+
+    document.getElementById('modal-item-name').innerHTML = result.name
+    if(document.getElementById('item_modal').classList.contains('hidden')){
+        document.getElementById('item_modal').classList.remove('hidden')
+    }else{
+        document.getElementById('item_modal').classList.add('hidden')
+
+    }
+    
+}
+
+function close_item_modal(){
+    document.getElementById('item_modal').classList.add('hidden')
+}

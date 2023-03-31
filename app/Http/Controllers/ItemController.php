@@ -55,4 +55,9 @@ class ItemController extends Controller
             return redirect()->route('home');
         }
     }
+    public function get(Request $request)
+    {
+        $item = Product::find($request->id);
+        return json_encode(array('name' => $item->name));
+    }
 }
