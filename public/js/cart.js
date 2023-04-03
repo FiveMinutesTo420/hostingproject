@@ -21,19 +21,26 @@ async function changeAmount(amount,id,url){
 
     }else{
         if("remove_id" in result){
-            document.getElementById(result.remove_id).remove();
+            document.getElementById(result.remove_id).innerHTML = "";
         }
      
         const el = document.querySelector('.ifhaserror');
         el.innerHTML = "<div class='flex w-full p-4 text-xs bg-[#F8D7DA] mt-4 rounded text-center justify-center drop-shadow' id='error'>Товары отмеченные *** отсутствуют в нужном количестве или их нет на складе!</div>"
         if("add_error" in result){
+            document.getElementById(result.add_error_class).innerHTML = "***"
+            /*
             if(document.getElementById(result.add_error).querySelector("#error") == null){
                 document.getElementById(result.add_error).innerHTML += "<div id='error'><div class='text-red-500' id='"+result.add_error_class+"'>***</div></div>";
             }
+            */
             
         }
         
     }
+    document.getElementById('total').innerHTML = result['new_total'] + " руб.";     
+    document.getElementById('sum').innerHTML = result['new_total'] + " руб.";
+    document.getElementById('cart-item' + id).innerHTML = result['new_price'] + " руб.";
+
     
 }
 

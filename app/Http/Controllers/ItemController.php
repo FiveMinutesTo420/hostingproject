@@ -60,4 +60,9 @@ class ItemController extends Controller
         $item = Product::find($request->id);
         return json_encode(array('name' => $item->name));
     }
+    public function delete_item_from_cart(Request $request, Cart $item)
+    {
+        $item->delete();
+        return back();
+    }
 }

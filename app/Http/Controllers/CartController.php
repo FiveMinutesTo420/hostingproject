@@ -25,10 +25,14 @@ class CartController extends Controller
         $user = auth()->user();
         $message = array();
         if (is_numeric($data['amount']) && is_numeric($data['id'])) {
+
             $cart = Cart::find(intval($data['id']));
             $cart->count = $data['amount'];
+            $message['new_price'] = number_format($data['amount'] * $cart->item->price);
+
             $cart->save();
             $message['all'] = 'good';
+
             if ($cart->count > $cart->item->in_stock) {
                 $message['status'] = "bigger";
                 $message['add_error'] = "cart" . $cart->id;
@@ -42,6 +46,11 @@ class CartController extends Controller
                     $message['all'] = "bad";
                 }
             }
+            $all = 0;
+            foreach (auth()->user()->cart as $cart) {
+                $all += $cart->count * $cart->item->price;
+            }
+            $message['new_total'] = number_format($all);
             return json_encode($message);
         }
     }

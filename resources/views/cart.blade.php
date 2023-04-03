@@ -43,16 +43,27 @@
                 <a href="{{route('item',$cart->item->id)}}" class="w-[150px] lg:w-[250px] " id="cart{{$cart->id}}">
                     {{$cart->item->name}}
                     <div id="error">
-                        @if($cart->count > $cart->item->in_stock)
-                        <div class="text-red-500" id="error{{$cart->id}}">***</div>
-                    @endif
+                    
+                        <div class="text-red-500" id="error{{$cart->id}}">
+                            @if($cart->count > $cart->item->in_stock)
+                                ***
+                            @endif
+
+                        </div>
                     </div>
 
                 </a>
-                <p class="w-[100px]"><input type="number" onchange="changeAmount(this,'{{$cart->id}}','{{route('change_amount')}}')" value="{{$cart->count}}" class="w-1/2 text-center py-2 outline-red-600"></p>
+                <div class="w-[100px] flex justify-between items-center">
+                    <input type="number" onchange="changeAmount(this,'{{$cart->id}}','{{route('change_amount')}}')" value="{{$cart->count}}" class="w-1/2 text-center py-2 outline-red-600"> 
+                    <form action="{{route('delete_item_from_cart',$cart->id)}}" method="POST" class=" flex items-center">
+                        @csrf
+                        <input type="image" src="{{url('images/site/delete-red.svg')}}" class="cursor-pointer p-1 w-6 lg:w-8">
+                    </form>
+                    
+                </div>
                 <p class="w-[60px]">{{ number_format($cart->item->price)}} руб.</p>
 
-                <p class="w-[60px]">{{number_format($cart->count * $cart->item->price)}} руб.</p>
+                <p class="w-[60px]" id="cart-item{{$cart->id}}">{{number_format($cart->count * $cart->item->price)}} руб.</p>
                 <?php $all += $cart->count * $cart->item->price?>
             </div>
             @endforeach
@@ -70,11 +81,11 @@
                 <div class="flex flex-col text-sm">
                     <div class="flex just border border-b-0">
                         <div class="w-[35%] text-right p-2 border-r">Сумма:</div>
-                        <div class="w-[65%] p-2 text-right">{{number_format($all)}} руб</div>
+                        <div class="w-[65%] p-2 text-right" id="sum">{{number_format($all)}} руб</div>
                     </div>
                     <div class="flex border">
                         <div class="w-[35%] text-right p-2 border-r">Итого:</div>
-                        <div class="w-[65%] p-2 text-right">{{number_format($all)}} руб</div>
+                        <div class="w-[65%] p-2 text-right" id="total">{{number_format($all)}} руб</div>
                     </div>
                 </div>
                 <div class="flex"></div>
