@@ -14,10 +14,11 @@ async function changeAmount(amount,id,url){
     })
     let result = await response.json()
     if(result.all == "good"){
-        let get = document.querySelectorAll('#error');
-            get.forEach(element => {
-            element.remove();
+        let get = document.querySelectorAll('.stock_error');
+        get.forEach(element => {
+            element.innerHTML = "";
         });
+        document.getElementById('error').remove();
 
     }else{
         if("remove_id" in result){

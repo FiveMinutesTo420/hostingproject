@@ -44,7 +44,7 @@
                     {{$cart->item->name}}
                     <div id="error">
                     
-                        <div class="text-red-500" id="error{{$cart->id}}">
+                        <div class="text-red-500 stock_error" id="error{{$cart->id}}">
                             @if($cart->count > $cart->item->in_stock)
                                 ***
                             @endif
