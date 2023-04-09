@@ -17,6 +17,8 @@ class ItemController extends Controller
     {
         if ($row = Cart::where('item_id', $item->id)->first()) {
             $row->count = $row->count + $request->count;
+            $item->in_stock -= 1;
+            $item->save();
             $row->save();
             return Redirect::back()->withSuccess("Корзина обновлена!");
         } else {
@@ -25,6 +27,8 @@ class ItemController extends Controller
                 "item_id" => $item->id,
                 "count" => $request->count,
             ]);
+            $item->in_stock -= 1;
+            $item->save();
 
             return Redirect::back()->withSuccess("Товар добавлен в корзину");
         }
@@ -62,6 +66,7 @@ class ItemController extends Controller
     }
     public function delete_item_from_cart(Request $request, Cart $item)
     {
+        $item->item->in_stock += $item->count;
         $item->delete();
         return back();
     }

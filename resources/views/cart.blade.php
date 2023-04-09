@@ -37,7 +37,7 @@
                 <p class="w-[60px]">Всего</p>
             </div>
             <?php $all = 0?>
-            @foreach($user_cart_items as $cart)
+            @forelse($user_cart_items as $cart)
             <div class="flex text-[9px] lg:text-sm text-center space-x-4  border-b pb-2 drop-shadow-sm items-center justify-between">
                 <img src="{{url('images/products/'.$cart->item->image)}}" class="rounded w-[65px] lg:w-[80px]" alt="">
                 <a href="{{route('item',$cart->item->id)}}" class="w-[150px] lg:w-[250px] " id="cart{{$cart->id}}">
@@ -54,7 +54,7 @@
 
                 </a>
                 <div class="w-[100px] flex justify-between items-center">
-                    <input type="number" onchange="changeAmount(this,'{{$cart->id}}','{{route('change_amount')}}')" value="{{$cart->count}}" class="w-1/2 text-center py-2 outline-red-600"> 
+                    <input type="number" max="{{$cart->item->in_stock}}" min="0" onchange="changeAmount(this,'{{$cart->id}}','{{route('change_amount')}}')" value="{{$cart->count}}" class="w-1/2 text-center py-2 outline-red-600"> 
                     <form action="{{route('delete_item_from_cart',$cart->id)}}" method="POST" class=" flex items-center">
                         @csrf
                         <input type="image" src="{{url('images/site/delete-red.svg')}}" class="cursor-pointer p-1 w-6 lg:w-8">
@@ -66,7 +66,11 @@
                 <p class="w-[60px]" id="cart-item{{$cart->id}}">{{number_format($cart->count * $cart->item->price)}} руб.</p>
                 <?php $all += $cart->count * $cart->item->price?>
             </div>
-            @endforeach
+            @empty
+                <div class="p-4 text-2xl">
+                    Корзина пуста, Милорд
+                </div>
+            @endforelse
 
         </div>
         <div class="flex flex-col  max-h-60   w-full lg:w-1/3">
@@ -88,7 +92,12 @@
                         <div class="w-[65%] p-2 text-right" id="total">{{number_format($all)}} руб</div>
                     </div>
                 </div>
-                <div class="flex"></div>
+                <div class="flex w-full">
+                    <form action="{{route('order.create')}}"  method="POST" class="w-full">
+                        @csrf
+                        <input type="submit" id="checkForm" @if($not_in_stock == true or $user_cart_items->count() == 0) disabled @endif  class="bg-[#007BFF] text-white p-2 w-full cursor-pointer" value="Оформить заказ">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

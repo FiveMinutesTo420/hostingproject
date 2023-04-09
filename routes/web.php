@@ -8,6 +8,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,13 @@ Route::get('/item/{item}', [ItemController::class, 'show'])->name('item');
 Route::middleware(['auth'])->group(function () {
     Route::post('/cart/change/amount', [CartController::class, 'change_amount'])->name('change_amount');
     Route::get('/cart', CartController::class)->name('cart');
+    Route::get('/orders', OrderController::class)->name('orders');
+    Route::post('/orders', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/order/cancel/{order}', [OrderController::class, 'cancel'])->name('order.cancel');
+
+
     Route::post('cart/add/{item}', [ItemController::class, 'addToCart'])->name('add_to_cart');
+
     Route::post('get/item/{id}', [ItemController::class, 'get'])->name('get_item');
     Route::post('/cart/delete/{item}', [ItemController::class, 'delete_item_from_cart'])->name('delete_item_from_cart');
 });

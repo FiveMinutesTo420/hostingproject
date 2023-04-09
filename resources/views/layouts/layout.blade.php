@@ -71,8 +71,8 @@
                 <div id="log-menu" class="h-max rounded hidden w-54 text-sm lg:mr-5   bg-white border absolute flex flex-col justify-center items-center">
                     @if(auth()->check())
                     <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Личный кабинет</a>
-                    <a href="{{route('log_p')}}" class="w-full hover:bg-gray-100 p-1 px-4">История заказов</a>
-                    <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Корзина</a>
+                    <a href="{{route('orders')}}" class="w-full hover:bg-gray-100 p-1 px-4">История заказов</a>
+                    <a href="{{route('cart')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Корзина</a>
                     <form action="{{route('logout')}}" method="POST" class="w-full cursor-pointer">
                         @csrf
                         <input type="submit" value="Выход" class="w-full text-left hover:bg-gray-100 p-1 px-4">
@@ -184,7 +184,7 @@
                 </span>
                 <span class="">
                     @if(Auth::check())
-                    Корзина ({{auth()->user()->cart->count()}})
+                    Корзина ({{auth()->user()->cart->where('order_id',null)->count()}})
                     @else
                     <p>Войдите</p>
                     @endif
@@ -362,10 +362,10 @@
                     <h3 class="text-lg font-semibold leading-6 text-gray-900" id="modal-title">Корзина покупок</h3>
                     <div class="mt-4 text-sm space-y-4 text-gray-500 ">
                     @if(Auth::check())
-                        @if(auth()->user()->cart->count() == 0)
+                        @if(auth()->user()->cart->where('order_id',null)->count() == 0)
                             <p> Вы не добавили ни одного товара </p>
                         @else
-                            @foreach(auth()->user()->cart as $cart_item)
+                            @foreach(auth()->user()->cart->where('order_id',null) as $cart_item)
                             <div class="flex justify-between items-center text-xs lg:text-sm space-x-2  py-3">
                                 <img width="60" src="{{url('images/products/'.$cart_item->item->image)}}" alt="">
                                 <a href="{{route('item',$cart_item->item->id)}}" class="text-center  hover:border-b text-blue-500">{{$cart_item->item->name}}</a>
@@ -377,11 +377,11 @@
                             @endforeach
                             <?php $sum_total = 0?>
                             <div class="w-full flex items-center border-t border-b p-4 justify-center">
-                            @foreach(auth()->user()->cart as $cart_item)
+                            @foreach(auth()->user()->cart->where('order_id',null) as $cart_item)
                                 <?php $sum_total += $cart_item->item->price * $cart_item->count ?>
                                 
                             @endforeach
-                               <p> {{auth()->user()->cart->count()}} товар(ов), на сумму  <b class="text-black">{{$sum_total}} рублей</b></p>
+                               <p> {{auth()->user()->cart->where('order_id',null)->count()}} товар(ов), на сумму  <b class="text-black">{{$sum_total}} рублей</b></p>
                             </div>
                         @endif
                       @else
@@ -393,8 +393,12 @@
               </div>
               <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 ">
                 @if(Auth::check())
-                @if(auth()->user()->cart->count() != 0)
-                <button type="submit" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Оформить заказ</button>
+                @if(auth()->user()->cart->where('order_id',null)->count() != 0)
+                <form action="{{route('order.create')}}"  method="POST" class="">
+                    @csrf
+                    <button type="submit" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Оформить заказ</button>
+                </form>
+
                 @endif
                  
                   <a href="{{route('cart')}}" class="mt-3 lg:mt-0 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm text-gray-900 sm:ml-3 sm:w-auto ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Перейти в корзину</a>

@@ -9,7 +9,7 @@ class CartController extends Controller
 {
     public function __invoke()
     {
-        $user_cart_items = auth()->user()->cart;
+        $user_cart_items = auth()->user()->cart->where('order_id', null);
         $not_in_stock = false;
 
         foreach ($user_cart_items as $cart) {
@@ -41,13 +41,13 @@ class CartController extends Controller
                 $message['status'] = "ok";
                 $message['remove_id'] = "error" . $cart->id;
             }
-            foreach ($user->cart as $cart) {
+            foreach ($user->cart->where('order_id', null) as $cart) {
                 if ($cart->count > $cart->item->in_stock) {
                     $message['all'] = "bad";
                 }
             }
             $all = 0;
-            foreach (auth()->user()->cart as $cart) {
+            foreach (auth()->user()->cart->where('order_id', null) as $cart) {
                 $all += $cart->count * $cart->item->price;
             }
             $message['new_total'] = number_format($all);

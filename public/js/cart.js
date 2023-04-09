@@ -19,8 +19,10 @@ async function changeAmount(amount,id,url){
             element.innerHTML = "";
         });
         document.getElementById('error').remove();
+        document.getElementById('checkForm').removeAttribute('disabled');
 
     }else{
+        document.getElementById('checkForm').setAttribute('disabled','disabled')
         if("remove_id" in result){
             document.getElementById(result.remove_id).innerHTML = "";
         }
