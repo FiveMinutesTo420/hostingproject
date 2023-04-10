@@ -27,15 +27,19 @@ class ItemController extends Controller
                 return Redirect::back()->with('error', "Товара не хватает в наличии!");
             }
         } else {
-            Cart::create([
-                "user_id" => auth()->user()->id,
-                "item_id" => $item->id,
-                "count" => $request->count,
-            ]);
-            $item->in_stock -= $request->count;
-            $item->save();
+            if ($item->in_stock > $request->count) {
+                Cart::create([
+                    "user_id" => auth()->user()->id,
+                    "item_id" => $item->id,
+                    "count" => $request->count,
+                ]);
+                $item->in_stock -= $request->count;
+                $item->save();
 
-            return Redirect::back()->withSuccess("Товар добавлен в корзину");
+                return Redirect::back()->withSuccess("Товар добавлен в корзину");
+            }
+
+            return Redirect::back()->with('error', "Товара не хватает в наличии!");
         }
     }
     public function search(Request $request)
