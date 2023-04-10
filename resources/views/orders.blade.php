@@ -15,7 +15,7 @@
     <div class="border p-4 flex flex-col text-xs space-y-6 lg:text-base">
         <div class="flex w-full items-center  justify-between">
             <div class="flex items-center space-x-4"><div>Заказ #{{$order->id}}</div>
-             <div class="@if($order->status == "Новый") text-blue-500 @endif @if($order->status == "Отменен") text-red-500 @endif @if($order->status == "Подтвержден") text-blue-500 @endif ">
+             <div class="@if($order->status == "Новый") text-blue-500 @endif @if($order->status == "Отменен") text-red-500 @endif @if($order->status == "Подтвержден") text-green-500 @endif ">
                 {{$order->status}}
             </div> 
             @if($order->status == "Новый")
