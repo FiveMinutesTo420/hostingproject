@@ -22,10 +22,15 @@ class OrderController extends Controller
     }
     public function create(Request $request)
     {
-        $order = Order::create(['user_id' => auth()->user()->id]);
 
         foreach (auth()->user()->cart as $cart) {
+
             if ($cart->order_id == null) {
+                if ($cart->item->in_stock < $cart->count) {
+                    return back()->with('error', "Товара нехватает в наличии!");
+                }
+                $order = Order::create(['user_id' => auth()->user()->id]);
+
                 $cart->order_id = $order->id;
                 $cart->save();
             }

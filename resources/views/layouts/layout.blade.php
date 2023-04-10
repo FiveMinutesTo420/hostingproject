@@ -204,6 +204,11 @@
             {{Session::get('success')}}
         </div>
         @endif
+        @if(Session::has('error'))
+        <div class="p-3 px-4 flex items-center justify-center rounded bg-red-400 text-white text-lg">
+            {{Session::get('error')}}
+        </div>
+        @endif
      
     </div>
     

@@ -27,6 +27,7 @@ class CartController extends Controller
         if (is_numeric($data['amount']) && is_numeric($data['id'])) {
 
             $cart = Cart::find(intval($data['id']));
+
             $cart->count = $data['amount'];
             $message['new_price'] = number_format($data['amount'] * $cart->item->price);
 

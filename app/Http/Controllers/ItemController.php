@@ -16,18 +16,23 @@ class ItemController extends Controller
     public function addToCart(Request $request, Product $item)
     {
         if ($row = Cart::where('item_id', $item->id)->where('order_id', null)->first()) {
-            $row->count = $row->count + $request->count;
-            $item->in_stock -= 1;
-            $item->save();
-            $row->save();
-            return Redirect::back()->withSuccess("Корзина обновлена!");
+
+            if ($request->count < $item->in_stock) {
+                $row->count = $row->count + $request->count;
+                $item->in_stock -= $request->count;
+                $item->save();
+                $row->save();
+                return Redirect::back()->withSuccess("Корзина обновлена!");
+            } else {
+                return Redirect::back()->with('error', "Товара не хватает в наличии!");
+            }
         } else {
             Cart::create([
                 "user_id" => auth()->user()->id,
                 "item_id" => $item->id,
                 "count" => $request->count,
             ]);
-            $item->in_stock -= 1;
+            $item->in_stock -= $request->count;
             $item->save();
 
             return Redirect::back()->withSuccess("Товар добавлен в корзину");

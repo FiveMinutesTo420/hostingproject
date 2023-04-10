@@ -27,7 +27,7 @@
                     </div>
                     <div class="flex space-x-2">
                         <div class="flex text-black">
-                            <input type="number" id="count_input" class="border w-[60px] text-center" min="1" value="1">
+                            <input type="number" id="count_input" class="border w-[60px] text-center" min="1" max="{{$item->in_stock}}" value="1">
                         </div>
                         
                         <button @if(Auth::check() == false) disabled @endif id="buy"  class="text-center px-3 bg-[#F79400] text-white font-semibold rounded w-full py-1">
