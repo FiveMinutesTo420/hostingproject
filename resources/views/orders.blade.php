@@ -3,6 +3,14 @@
 @section('content')
 <div class="flex flex-col space-y-3 py-4">
     <p class="text-2xl">Заказы</p>
+    <div class="flex space-x-4">
+        <a href="{{route('orders',['sort'=>'canceled'])}}" class="p-4 border">Отмененые</a>
+        <a href="{{route('orders',['sort'=>'new'])}}" class="p-4 border">Новые</a>
+        <a href="{{route('orders',['sort'=>'submitted'])}}" class="p-4 border">Подтвержденные</a>
+        <a href="{{route('orders')}}" class="p-4 border">Отменить сортировку</a>
+
+    </div>
+
     @forelse($orders as $order)
     <div class="border p-4 flex flex-col text-xs space-y-6 lg:text-base">
         <div class="flex w-full items-center  justify-between">

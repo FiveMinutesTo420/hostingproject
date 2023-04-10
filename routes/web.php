@@ -20,8 +20,8 @@ use App\Http\Controllers\OrderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//TODO::Корзину чтобы менялась цена и при изменении кол-ва. 
-//Остальные мелкие страницы с текстом(Помощь, О компании и тд)
+//TODO::Админку добавлять товары и менять статусы заказам. + доработать чтобы при добавлении в корзину и при удалении из корзины изменялось кол-во на складе
+//Остальные мелкие страницы с текстом(О нас и тд)
 Route::get('/', HomeController::class)->name('home');
 Route::get('/category/{category}', CategoryController::class)->name('category');
 Route::get('/category/{category}/{sub_category}', SubCategoryController::class)->name('subcategory');

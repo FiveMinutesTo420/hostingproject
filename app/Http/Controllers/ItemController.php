@@ -15,7 +15,7 @@ class ItemController extends Controller
     }
     public function addToCart(Request $request, Product $item)
     {
-        if ($row = Cart::where('item_id', $item->id)->first()) {
+        if ($row = Cart::where('item_id', $item->id)->where('order_id', null)->first()) {
             $row->count = $row->count + $request->count;
             $item->in_stock -= 1;
             $item->save();

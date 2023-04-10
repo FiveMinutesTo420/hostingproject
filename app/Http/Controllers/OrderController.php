@@ -7,8 +7,17 @@ use App\Models\Order;
 
 class OrderController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
+        if ($request->has('sort')) {
+            if ($request->sort == "new") {
+                return view('orders', ['orders' => auth()->user()->orders->sortByDesc('id')->where('status', 'Новый')]);
+            } else if ($request->sort == "canceled") {
+                return view('orders', ['orders' => auth()->user()->orders->sortByDesc('id')->where('status', 'Отменен')]);
+            } else if ($request->sort == "submitted") {
+                return view('orders', ['orders' => auth()->user()->orders->sortByDesc('id')->where('status', 'Подтвержден')]);
+            }
+        }
         return view('orders', ['orders' => auth()->user()->orders->sortByDesc('id')]);
     }
     public function create(Request $request)
