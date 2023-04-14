@@ -70,6 +70,9 @@
                 </div>
                 <div id="log-menu" class="h-max rounded hidden w-54 text-sm lg:mr-5   bg-white border absolute flex flex-col justify-center items-center">
                     @if(auth()->check())
+                    @if(auth()->user()->status == 2)
+                        <a href="{{route('admin')}}" class="w-full hover:bg-gray-100 p-1 px-4">Админ</a>
+                    @endif
                     <a href="{{route('reg_p')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Личный кабинет</a>
                     <a href="{{route('orders')}}" class="w-full hover:bg-gray-100 p-1 px-4">История заказов</a>
                     <a href="{{route('cart')}}" class="w-full hover:bg-gray-100 p-1 px-4 ">Корзина</a>

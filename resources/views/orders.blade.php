@@ -27,6 +27,12 @@
         </div>
             <p>{{$order->created_at}}</p>
         </div>
+        @if($order->comment != null)
+        <div class="border flex flex-wrap p-3">
+            Комментарий: {{$order->comment}}
+        </div>
+        @endif
+
             <div class="flex flex-col space-y-4">
                 @php $all = 0 @endphp
                 @foreach($order->cart as $cart)

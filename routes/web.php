@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
@@ -20,8 +21,9 @@ use App\Http\Controllers\OrderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//TODO::Админку добавлять товары и менять статусы заказам. + доработать чтобы при добавлении в корзину и при удалении из корзины изменялось кол-во на складе
+//TODO::Админку добавлять товары и менять статусы заказам тоже самое с категориями.
 //Остальные мелкие страницы с текстом(О нас и тд)
+
 Route::get('/', HomeController::class)->name('home');
 Route::get('/category/{category}', CategoryController::class)->name('category');
 Route::get('/category/{category}/{sub_category}', SubCategoryController::class)->name('subcategory');
@@ -47,6 +49,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('get/item/{id}', [ItemController::class, 'get'])->name('get_item');
     Route::post('/cart/delete/{item}', [ItemController::class, 'delete_item_from_cart'])->name('delete_item_from_cart');
+});
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', AdminController::class)->name('admin');
+    Route::post('/change/order/status/{order}', [AdminController::class, 'changeOrderStatus'])->name('admin.change.status');
 });
 Route::post('/search', [ItemController::class, 'search'])->name('search');
 Route::get('/search', [ItemController::class, 'search_p'])->name("search_p");
