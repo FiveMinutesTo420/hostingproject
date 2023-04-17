@@ -26,9 +26,9 @@
                     <a href="{{route('admin')}}" class="p-2 border">Отменить сортировку</a>
                 </div>
                 <div class="flex flex-col overflow-y-auto h-[300px]">
-                    @foreach($orders as $order)
-                    <div class="py-2 ">
-                        Заказ №{{$order->id}} | {{$order->created_at}}
+                    @forelse($orders as $order)
+                    <div class="py-2 border-t pt-4 border-black ">
+                        <span class="text-xl font-medium tracking-widest">Заказ №{{$order->id}} | {{$order->created_at}}</span>
                         <div class="">
                             <div class="border p-2 space-y-2">
                             @php $all = 0 @endphp
@@ -61,7 +61,9 @@
                         </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                        <p class="py-4">Нет заказов</p>
+                    @endforelse
                 </div>
             </div>
         </div>

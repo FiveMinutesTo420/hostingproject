@@ -18,7 +18,10 @@ async function changeAmount(amount,id,url){
         get.forEach(element => {
             element.innerHTML = "";
         });
-        document.getElementById('error').remove();
+        if(document.getElementById('error') != null){
+            document.getElementById('error').remove();
+
+        }
         document.getElementById('checkForm').removeAttribute('disabled');
 
     }else{

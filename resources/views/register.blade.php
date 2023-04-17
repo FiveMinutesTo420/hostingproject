@@ -101,6 +101,11 @@
                             <div class="text-red-500">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div>
+                        <input type="checkbox" id="che" required>
+
+                        <label for="che">Согласен с правилами регистрации</label>
+                    </div>
     
                 </div>
                 <input type="submit" value="Зарегистрироваться" class="bg-green-500 cursor-pointer hover:bg-green-600 text-white p-2 rounded">
